@@ -6,19 +6,73 @@
     <title>Dr. Arpan Mukherjee - Mathematical Sciences</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Previous styles remain, add these new ones */
-        
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .header-container {
+            background: var(--primary);
+            color: white;
+            padding: 2rem 0;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin: 1rem auto;
+        }
+
+        .nav-container {
+            margin: 3rem auto;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-item {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav-item:hover {
+            transform: translateY(-5px);
+            background: var(--secondary);
+            color: white;
+        }
+
         .section {
             display: none;
-            opacity: 0;
-            animation: fadeIn 0.5s forwards;
-            min-height: 100vh;
-            padding: 4rem 0;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            text-align: left;
         }
 
         .section.active {
             display: block;
-            opacity: 1;
+            animation: fadeIn 0.5s ease;
         }
 
         @keyframes fadeIn {
@@ -26,89 +80,76 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .nav-links a.active {
+        .back-btn {
+            display: block;
+            margin-top: 2rem;
+            text-align: center;
             color: var(--secondary);
-            font-weight: bold;
+            text-decoration: none;
         }
 
-        .home-section {
-            display: block;
-            text-align: center;
-            padding: 8rem 0;
+        @media (max-width: 768px) {
+            .nav-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <img src="assets/profile.jpg" alt="Dr. Arpan Mukherjee" class="profile-img">
-            <h1>Dr. Arpan Mukherjee</h1>
-            <p>Tenure-Track Assistant Professor of Mathematics</p>
-        </div>
-    </header>
+    <div class="header-container">
+        <img src="assets/profile.jpg" alt="Dr. Arpan Mukherjee" class="profile-img">
+        <h1>Dr. Arpan Mukherjee</h1>
+        <p>Tenure-Track Assistant Professor of Mathematics</p>
+    </div>
 
-    <nav>
-        <div class="container">
-            <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Home Section -->
-    <section id="home" class="home-section active">
-        <div class="container">
-            <h2>Welcome to My Academic Portfolio</h2>
-            <div class="quick-links">
-                <a href="#research" class="quick-link">Research Interests</a>
-                <a href="#publications" class="quick-link">Recent Publications</a>
-                <a href="#education" class="quick-link">Academic Journey</a>
+    <div class="nav-container">
+        <div class="nav-grid">
+            <div class="nav-item" data-section="research">
+                <i class="fas fa-microscope fa-2x"></i>
+                <h3>Research</h3>
+            </div>
+            <div class="nav-item" data-section="publications">
+                <i class="fas fa-book-open fa-2x"></i>
+                <h3>Publications</h3>
+            </div>
+            <div class="nav-item" data-section="education">
+                <i class="fas fa-graduation-cap fa-2x"></i>
+                <h3>Education</h3>
+            </div>
+            <div class="nav-item" data-section="contact">
+                <i class="fas fa-envelope fa-2x"></i>
+                <h3>Contact</h3>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Research Section -->
     <section id="research" class="section">
-        <div class="container">
-            <h2 class="section-title">Research Interests</h2>
-            <!-- Research content -->
-            <a href="#home" class="back-btn">← Back to Home</a>
-        </div>
+        <h2>Research Interests</h2>
+        <ul>
+            <li>Analysis of Partial Differential Equations</li>
+            <li>Mathematical Problems in Materials Science</li>
+            <li>Wave Propagation & Inverse Problems</li>
+        </ul>
+        <a href="#" class="back-btn">Back to Home</a>
     </section>
 
-    <!-- Publications Section -->
-    <section id="publications" class="section">
-        <div class="container">
-            <h2 class="section-title">Publications</h2>
-            <!-- Publications content -->
-            <a href="#home" class="back-btn">← Back to Home</a>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="section">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            <!-- Education content -->
-            <a href="#home" class="back-btn">← Back to Home</a>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">Contact</h2>
-            <!-- Contact content -->
-            <a href="#home" class="back-btn">← Back to Home</a>
-        </div>
-    </section>
+    <!-- Add other sections following the same pattern -->
 
     <script>
-        // Handle navigation
+        // Navigation functionality
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const sectionId = this.dataset.section;
+                showSection(sectionId);
+            });
+        });
+
         function showSection(sectionId) {
             // Hide all sections
             document.querySelectorAll('.section').forEach(section => {
@@ -116,44 +157,25 @@
             });
             
             // Show selected section
-            const section = document.getElementById(sectionId);
-            if(section) {
-                section.classList.add('active');
-                window.scrollTo(0, 0);
+            const activeSection = document.getElementById(sectionId);
+            if(activeSection) {
+                activeSection.classList.add('active');
+                window.scrollTo({
+                    top: activeSection.offsetTop - 100,
+                    behavior: 'smooth'
+                });
             }
-            
-            // Update active nav link
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-                if(link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
-                }
-            });
         }
 
-        // Event listeners for nav links
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function(e) {
+        // Back button functionality
+        document.querySelectorAll('.back-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
                 e.preventDefault();
-                const sectionId = this.getAttribute('href').substring(1);
-                showSection(sectionId);
+                document.querySelectorAll('.section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
-        });
-
-        // Handle initial load
-        window.addEventListener('load', () => {
-            const hash = window.location.hash.substring(1);
-            if(hash) {
-                showSection(hash);
-            } else {
-                showSection('home');
-            }
-        });
-
-        // Handle browser back/forward
-        window.addEventListener('hashchange', () => {
-            const hash = window.location.hash.substring(1);
-            showSection(hash || 'home');
         });
     </script>
 </body>
