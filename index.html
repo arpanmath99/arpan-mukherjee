@@ -3,73 +3,310 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Jane Doe - Mathematics Professor</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <title>Dr. Jane Doe | Mathematical Sciences</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            line-height: 1.6;
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .hero {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0 70L1200 0V120H0Z" fill="%23fff"/></svg>');
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid var(--light);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Navigation */
+        .nav-bar {
+            background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 1rem 0;
+        }
+
+        .nav-links a {
+            color: var(--primary);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+            background: white;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .section:nth-child(even) {
+            background: var(--light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        /* Research Cards */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .research-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .research-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Publications List */
+        .publication-list {
+            list-style: none;
+        }
+
+        .publication-item {
+            padding: 1.5rem;
+            background: white;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--secondary);
+            transition: transform 0.3s ease;
+        }
+
+        .publication-item:hover {
+            transform: translateX(10px);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .contact-card {
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-card i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links a {
+                padding: 0.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <img src="assets/profile.jpg" alt="Dr. Jane Doe" class="profile-img">
-        <h1>Dr. Arpan Mukherjee</h1>
-        <p>Lecturer ( Tenure Track Assistant Professor)</p>
-        <p>Joint Research Center of Applied Mathematics</p>
-        <p>Shenzhen MSU-BIT University, Shenzhen, China</p>
+    <header class="hero">
+        <div class="container">
+            <img src="assets/profile.jpg" alt="Dr. Jane Doe" class="profile-img">
+            <h1>Dr. Jane Doe</h1>
+            <p>Assistant Professor of Mathematics</p>
+            <p>University of Academic Excellence</p>
+        </div>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="#teaching">Teaching</a></li>
-            <li><a href="#publications">Publications</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <nav class="nav-bar">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#teaching">Teaching</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am........................</p>
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Me</h2>
+            </div>
+            <p class="lead-text">I specialize in mathematical analysis and its applications to real-world problems. My research focuses on...</p>
+            <!-- Add more content -->
+        </div>
     </section>
 
-    <section id="research">
-        <h2>Research Interests</h2>
-        <ul>
-            <li>Research Area 1</li>
-            <li>Research Area 2</li>
-            <li>Research Area 3</li>
-        </ul>
-        <h3>Current Projects</h3>
-        <p>Description of ongoing research projects...</p>
+    <section id="research" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Research Interests</h2>
+            </div>
+            <div class="research-grid">
+                <div class="research-card">
+                    <h3>Mathematical Modeling</h3>
+                    <p>Developing novel models for biological systems...</p>
+                </div>
+                <!-- Add more research cards -->
+            </div>
+        </div>
     </section>
 
-    <section id="teaching">
-        <h2>Teaching</h2>
-        <h3>Current Courses</h3>
-        <ul>
-            <li>Course Name 101 - Calculus I</li>
-            <li>Course Name 201 - Linear Algebra</li>
-        </ul>
-        <h3>Teaching Philosophy</h3>
-        <p>My approach to teaching mathematics emphasizes...</p>
-    </section>
-
-    <section id="publications">
-        <h2>Selected Publications</h2>
-        <ul>
-            <li>Doe, J. (2023). "Title of Paper." Journal Name. <a href="#">[PDF]</a></li>
-            <li>Doe, J. (2022). "Title of Paper." Journal Name. <a href="#">[PDF]</a></li>
-        </ul>
-    </section>
-
-    <section id="contact">
-        <h2>Contact Information</h2>
-        <p>Email: <a href="mailto:j.doe@university.edu">j.doe@university.edu</a></p>
-        <p>Office: Building Name, Room 123</p>
-        <p>University Address: 123 Academic Lane, Education City, USA</p>
-    </section>
+    <!-- Add other sections similarly -->
 
     <footer>
-        <p>© 2023 Dr. Jane Doe. Hosted on GitHub Pages.</p>
+        <div class="container">
+            <p>&copy; 2023 Dr. Jane Doe | Built with Passion for Mathematics</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Add smooth scrolling and active section highlighting
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add intersection observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.research-card, .publication-item').forEach((el) => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
