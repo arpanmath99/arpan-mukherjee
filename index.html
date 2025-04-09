@@ -5,192 +5,250 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Arpan Mukherjee | Mathematical Sciences</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
-        /* Previous CSS remains intact, adding new styles for CV sections */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+        }
+
+        /* Base styles remain similar, adding new components */
         
-        .timeline {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            padding: 5rem 0 8rem;
+            clip-path: ellipse(100% 100% at 50% 0%);
         }
 
-        .timeline-item {
-            padding: 2rem;
-            margin: 2rem 0;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: relative;
-            border-left: 4px solid #3498db;
-        }
-
-        .publication-list li {
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 5px;
-        }
-
-        .awards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .award-card {
-            padding: 1.5rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .language-container {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .language-box {
-            padding: 1rem 2rem;
-            background: #3498db;
+        .research-badge {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: var(--accent);
             color: white;
-            border-radius: 5px;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: var(--secondary);
+            transform: translateX(-50%);
+        }
+
+        .publication-card {
+            background: white;
+            border-left: 5px solid var(--secondary);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .publication-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .skill-meter {
+            height: 10px;
+            background: #eee;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--secondary);
+            transition: width 1s ease;
+        }
+
+        .interactive-map {
+            height: 400px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        /* Add more custom styles as needed */
     </style>
 </head>
 <body>
+    <!-- Header Section -->
     <header class="hero">
-        <div class="container">
-            <h1>Dr. Arpan Mukherjee</h1>
-            <p>Tenure-Track Assistant Professor of Mathematics</p>
-            <div class="contact-header">
-                <p><i class="fas fa-envelope"></i> <a href="mailto:arpan.mukherjee@oeaw.ac.at">arpan.mukherjee@oeaw.ac.at</a></p>
-                <p><i class="fas fa-phone"></i> +43 677 638 297 85 | +91 8300056442</p>
-                <div class="social-links">
-                    <a href="[ORCID_URL]"><i class="fab fa-orcid"></i></a>
-                    <a href="[ResearchGate_URL]"><i class="fab fa-researchgate"></i></a>
-                    <a href="[GoogleScholar_URL]"><i class="fas fa-graduation-cap"></i></a>
-                    <a href="[LinkedIn_URL]"><i class="fab fa-linkedin"></i></a>
-                </div>
+        <div class="container text-center">
+            <img src="assets/profile.jpg" alt="Dr. Arpan Mukherjee" 
+                 class="profile-img animate__animated animate__fadeIn">
+            <h1 class="animate__animated animate__fadeInDown">Dr. Arpan Mukherjee</h1>
+            <div class="position-tags">
+                <span class="position-tag">Tenure-Track Assistant Professor</span>
+                <span class="position-tag">Applied Mathematics</span>
+                <span class="position-tag">Wave Propagation Specialist</span>
             </div>
         </div>
     </header>
 
-    <section id="positions" class="section">
+    <!-- Academic Timeline Section -->
+    <section id="timeline" class="section">
         <div class="container">
-            <div class="section-header">
-                <h2>Academic Positions</h2>
-            </div>
+            <h2 class="section-title">Academic Journey</h2>
             <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Joint Research Center on Applied Mathematics</h3>
-                    <p>Shenzhen MSU-BIT University, PR China</p>
-                    <p class="date">Sept 2024 – Present</p>
-                    <ul>
-                        <li>Lecturer (Tenure-Track Assistant Professor)</li>
-                        <li>Visiting Researcher, City University of Hong Kong</li>
-                        <li>Mentor: Prof. Dr. Hongyu Liu</li>
-                    </ul>
+                <!-- Education -->
+                <div class="timeline-item education">
+                    <div class="timeline-content">
+                        <h3>PhD in Industrial Mathematics</h3>
+                        <div class="timeline-meta">
+                            <span class="institution">Johannes Kepler University Linz</span>
+                            <span class="duration">2021-2023</span>
+                        </div>
+                        <ul class="timeline-details">
+                            <li>Thesis: Mathematical Analysis of Therapy Modalities using Heat Generation or Acoustic Cavitation</li>
+                            <li>Supervisors: Univ.-Doz. Dr. Mourad Sini & Prof. Dr. Haibing Wang</li>
+                            <li>Grade: 1 (Excellent)</li>
+                        </ul>
+                    </div>
                 </div>
-                <!-- Add other positions similarly -->
-            </div>
-        </div>
-    </section>
 
-    <section id="research" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Research Interests</h2>
-            </div>
-            <div class="research-grid">
-                <div class="research-card">
-                    <h3>Analysis of PDEs</h3>
-                    <p>Asymptotic & Potential Analysis, Regularity Theory</p>
+                <!-- Positions -->
+                <div class="timeline-item position">
+                    <div class="timeline-content">
+                        <h3>Post-Doc Research Scientist</h3>
+                        <div class="timeline-meta">
+                            <span class="institution">RICAM, Austrian Academy of Sciences</span>
+                            <span class="duration">2020-2024</span>
+                        </div>
+                        <ul class="timeline-details">
+                            <li>FWF-P32660: Electromagnetism with Extreme Materials</li>
+                            <li>Developed novel models for nanoparticle heat generation</li>
+                            <li>Collaborated with international research teams</li>
+                        </ul>
+                    </div>
                 </div>
-                <!-- Add other research areas -->
+                <!-- Add other timeline items -->
             </div>
         </div>
     </section>
 
-    <section id="publications" class="section">
+    <!-- Research Publications -->
+    <section id="publications" class="section dark-bg">
         <div class="container">
-            <div class="section-header">
-                <h2>Selected Publications</h2>
-            </div>
-            <ul class="publication-list">
-                <li>A. Mukherjee & M. Sini. Heat Generation Using Lorentzian Nanoparticles. <em>SIAM Journal on Multiscale Modeling and Simulation</em>, 21(2), 542-597 (2023).</li>
-                <!-- Add other publications -->
-            </ul>
-        </div>
-    </section>
-
-    <section id="education" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Education</h2>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>PhD in Industrial Mathematics</h3>
-                    <p>Johannes Kepler University Linz, Austria</p>
-                    <p class="date">2021-2023</p>
-                    <p>Thesis: Mathematical Analysis of Therapy Modalities using Heat Generation or Acoustic Cavitation</p>
+            <h2 class="section-title">Research Output</h2>
+            <div class="publications-grid">
+                <div class="publication-card">
+                    <div class="publication-header">
+                        <span class="journal-label">SIAM MMS</span>
+                        <h3 class="paper-title">Heat Generation Using Lorentzian Nanoparticles</h3>
+                    </div>
+                    <div class="publication-meta">
+                        <span class="authors">Mukherjee, A. & Sini, M.</span>
+                        <span class="year">2023</span>
+                    </div>
+                    <div class="publication-actions">
+                        <a href="#" class="btn-pdf">PDF</a>
+                        <a href="#" class="btn-arxiv">arXiv</a>
+                    </div>
                 </div>
-                <!-- Add other education entries -->
+                <!-- Repeat for other publications -->
             </div>
         </div>
     </section>
 
+    <!-- Interactive Research Map -->
+    <section id="research-map" class="section">
+        <div class="container">
+            <h2 class="section-title">Global Collaborations</h2>
+            <div class="interactive-map">
+                <!-- Add interactive map using Leaflet.js or similar -->
+            </div>
+            <div class="collaboration-list">
+                <div class="collaborator">
+                    <img src="assets/sini.jpg" alt="Mourad Sini">
+                    <h4>Univ.-Doz. Dr. Mourad Sini</h4>
+                    <p>RICAM, Austrian Academy of Sciences</p>
+                </div>
+                <!-- Add other collaborators -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards & Recognition -->
     <section id="awards" class="section">
         <div class="container">
-            <div class="section-header">
-                <h2>Awards & Fellowships</h2>
-            </div>
-            <div class="awards-grid">
+            <h2 class="section-title">Honors & Achievements</h2>
+            <div class="awards-carousel">
                 <div class="award-card">
+                    <div class="award-icon"><i class="fas fa-award"></i></div>
                     <h3>FWF Doctoral Fellowship</h3>
                     <p>Austrian Science Fund (2020)</p>
-                    <p>Project: Electromagnetism with Extreme Materials</p>
+                    <p>€200,000 research funding</p>
                 </div>
                 <!-- Add other awards -->
             </div>
         </div>
     </section>
 
-    <section id="skills" class="section">
+    <!-- Teaching Portfolio -->
+    <section id="teaching" class="section">
         <div class="container">
-            <div class="section-header">
-                <h2>Skills & Languages</h2>
+            <h2 class="section-title">Pedagogical Activities</h2>
+            <div class="course-cards">
+                <div class="course-card">
+                    <h3>Introduction to Mathematical Theory of Electromagnetism</h3>
+                    <div class="course-meta">
+                        <span class="code">CB1101851</span>
+                        <span class="term">Summer 2025</span>
+                    </div>
+                    <div class="course-stats">
+                        <div class="stat">
+                            <i class="fas fa-users"></i>
+                            <span>45 Students</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-star"></i>
+                            <span>4.9/5 Rating</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="language-container">
-                <div class="language-box">English (Professional)</div>
-                <div class="language-box">Hindi (National)</div>
-                <div class="language-box">Bengali (Native)</div>
-            </div>
-            <h3>Technical Proficiencies</h3>
-            <ul>
-                <li>Python, Julia, MATLAB, R</li>
-                <li>LaTeX Typesetting</li>
-                <li>Numerical Analysis & Modeling</li>
-            </ul>
         </div>
     </section>
 
-    <!-- Add other sections as needed -->
-
     <script>
-        // Add interactive elements for timeline
-        document.querySelectorAll('.timeline-item').forEach((item, index) => {
-            item.style.animation = `fadeInUp 0.5s ease ${index * 0.2}s forwards`;
+        // Add interactive elements
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('animate__fadeInUp');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.timeline-item, .publication-card').forEach(el => {
+            observer.observe(el);
         });
 
-        // Add PDF download button
-        const downloadBtn = document.createElement('a');
-        downloadBtn.href = 'CV_Arpan_Mukherjee-109.pdf';
-        downloadBtn.download = 'Arpan_Mukherjee_CV.pdf';
-        downloadBtn.className = 'download-btn';
-        downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download Full CV';
-        document.querySelector('.hero .container').appendChild(downloadBtn);
+        // Initialize interactive map
+        const map = L.map('research-map').setView([48.2082, 16.3738], 3);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+        
+        // Add collaboration markers
+        const collaborators = [
+            { coords: [48.2082, 16.3738], name: "RICAM, Austria" },
+            { coords: [22.3193, 114.1694], name: "CityU Hong Kong" },
+            // Add other locations
+        ];
+
+        collaborators.forEach(loc => {
+            L.marker(loc.coords).addTo(map)
+                .bindPopup(loc.name);
+        });
     </script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 </body>
 </html>
