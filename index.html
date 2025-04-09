@@ -6,126 +6,35 @@
     <title>Dr. Arpan Mukherjee - Mathematical Sciences</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --light: #f8f9fa;
-        }
-
-        body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            color: #444;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header Section */
-        header {
-            text-align: center;
-            padding: 4rem 0;
-            background: var(--primary);
-            color: white;
-        }
-
-        .profile-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin: 1rem 0;
-            border: 4px solid white;
-        }
-
-        /* Navigation */
-        nav {
-            background: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 1rem 0;
-            margin: 0;
-        }
-
-        .nav-links a {
-            padding: 1rem 2rem;
-            text-decoration: none;
-            color: var(--primary);
-            transition: color 0.3s;
-        }
-
-        /* Sections */
-        section {
+        /* Previous styles remain, add these new ones */
+        
+        .section {
+            display: none;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+            min-height: 100vh;
             padding: 4rem 0;
         }
 
-        .section-title {
-            color: var(--primary);
-            border-bottom: 2px solid var(--secondary);
-            padding-bottom: 1rem;
-            margin-bottom: 2rem;
+        .section.active {
+            display: block;
+            opacity: 1;
         }
 
-        /* Publication List */
-        .publication-item {
-            margin-bottom: 1.5rem;
-            padding: 1.5rem;
-            background: white;
-            border-left: 4px solid var(--secondary);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Education Timeline */
-        .timeline-item {
-            margin-bottom: 2rem;
-            padding-left: 2rem;
-            border-left: 2px solid var(--secondary);
-            position: relative;
+        .nav-links a.active {
+            color: var(--secondary);
+            font-weight: bold;
         }
 
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 0;
-            width: 14px;
-            height: 14px;
-            background: var(--secondary);
-            border-radius: 50%;
-        }
-
-        /* Contact Info */
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        footer {
-            background: var(--primary);
-            color: white;
+        .home-section {
+            display: block;
             text-align: center;
-            padding: 2rem 0;
-            margin-top: 4rem;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                flex-direction: column;
-                text-align: center;
-            }
+            padding: 8rem 0;
         }
     </style>
 </head>
@@ -135,122 +44,116 @@
             <img src="assets/profile.jpg" alt="Dr. Arpan Mukherjee" class="profile-img">
             <h1>Dr. Arpan Mukherjee</h1>
             <p>Tenure-Track Assistant Professor of Mathematics</p>
-            <div class="contact-header">
-                <p>
-                    <a href="mailto:arpan.mukherjee@oeaw.ac.at">arpan.mukherjee@oeaw.ac.at</a> 
-                    | +43 677 638 297 85
-                </p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-orcid"></i></a>
-                    <a href="#"><i class="fab fa-researchgate"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
         </div>
     </header>
 
     <nav>
         <div class="container">
             <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#research">Research</a></li>
                 <li><a href="#publications">Publications</a></li>
                 <li><a href="#education">Education</a></li>
-                <li><a href="#teaching">Teaching</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <section id="research">
+    <!-- Home Section -->
+    <section id="home" class="home-section active">
+        <div class="container">
+            <h2>Welcome to My Academic Portfolio</h2>
+            <div class="quick-links">
+                <a href="#research" class="quick-link">Research Interests</a>
+                <a href="#publications" class="quick-link">Recent Publications</a>
+                <a href="#education" class="quick-link">Academic Journey</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="section">
         <div class="container">
             <h2 class="section-title">Research Interests</h2>
-            <ul>
-                <li>Analysis of Partial Differential Equations</li>
-                <li>Mathematical Problems in Materials Science</li>
-                <li>Wave Propagation & Inverse Problems</li>
-                <li>Uncertainty Quantification</li>
-            </ul>
+            <!-- Research content -->
+            <a href="#home" class="back-btn">← Back to Home</a>
         </div>
     </section>
 
-    <section id="publications">
+    <!-- Publications Section -->
+    <section id="publications" class="section">
         <div class="container">
-            <h2 class="section-title">Selected Publications</h2>
-            <div class="publication-item">
-                <h3>“Heat Generation Using Lorentzian Nanoparticles: Estimation via Time-Domain Techniques</h3>
-                <p>A. Mukherjee & M.  Sini. <em>SIAM Journal on Multiscale Modeling and Simulation.  vol. 21, no. 2, pp. 542–597, 2023.</em></p>
-                <a href="#">[PDF]</a> <a href="#">[arXiv]</a>
-            </div>
-            <!-- Add other publications -->
+            <h2 class="section-title">Publications</h2>
+            <!-- Publications content -->
+            <a href="#home" class="back-btn">← Back to Home</a>
         </div>
     </section>
 
-    <section id="education">
+    <!-- Education Section -->
+    <section id="education" class="section">
         <div class="container">
             <h2 class="section-title">Education</h2>
-            <div class="timeline-item">
-                <h3>PhD in Industrial Mathematics</h3>
-                <p>Johannes Kepler University Linz (2021-2023)</p>
-                <p><em>Thesis:</em> Mathematical Analysis of Therapy Modalities using Heat Generation or Acoustic Cavitation</p>
-            </div>
-            <!-- Add other education entries -->
+            <!-- Education content -->
+            <a href="#home" class="back-btn">← Back to Home</a>
         </div>
     </section>
 
-    <section id="contact">
+    <!-- Contact Section -->
+    <section id="contact" class="section">
         <div class="container">
             <h2 class="section-title">Contact</h2>
-            <div class="contact-info">
-                <div>
-                    <h3>Office Address</h3>
-                    <p>Joint Research Center on Applied Mathematics<br>
-                    Shenzhen MSU-BIT University<br>
-                    People's Republic of China</p>
-                </div>
-                <div>
-                    <h3>Connect</h3>
-                    <p>Email: <a href="mailto:arpan.mukherjee@oeaw.ac.at">arpan.mukherjee@oeaw.ac.at</a></p>
-                    <p>Phone: +43 677 638 297 85</p>
-                </div>
-            </div>
+            <!-- Contact content -->
+            <a href="#home" class="back-btn">← Back to Home</a>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Dr. Arpan Mukherjee | Hosted on GitHub Pages</p>
-        </div>
-    </footer>
-
     <script>
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        // Handle navigation
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            const section = document.getElementById(sectionId);
+            if(section) {
+                section.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Event listeners for nav links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const sectionId = this.getAttribute('href').substring(1);
+                showSection(sectionId);
             });
         });
 
-        // Active link highlighting
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('nav a');
-            
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top <= 150 && rect.bottom >= 150) {
-                    const id = section.getAttribute('id');
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${id}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
+        // Handle initial load
+        window.addEventListener('load', () => {
+            const hash = window.location.hash.substring(1);
+            if(hash) {
+                showSection(hash);
+            } else {
+                showSection('home');
+            }
+        });
+
+        // Handle browser back/forward
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.substring(1);
+            showSection(hash || 'home');
         });
     </script>
 </body>
