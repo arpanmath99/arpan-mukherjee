@@ -1,3 +1,57 @@
+<!-- Add this within the <header> section -->
+<header class="header">
+    <div class="profile-header">
+        <div class="profile-photo">
+            <img src="your-photo.jpg" alt="Dr. Arpan Mukherjee">
+        </div>
+        <div class="profile-info">
+            <h1>Dr. Arpan Mukherjee</h1>
+            <div class="contact-bar">
+                <!-- Existing contact information -->
+            </div>
+        </div>
+    </div>
+</header>
+
+<style>
+/* Add these styles to the existing CSS */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.profile-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--primary);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+    }
+}
+</style>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
