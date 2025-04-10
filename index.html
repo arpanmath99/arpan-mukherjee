@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishnupriya Anupindi - Portfolio</title>
+    <title>Dr. Arpan Mukherjee - Academic CV</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -24,260 +24,176 @@
             background: #f9f9f9;
             color: var(--text);
             line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
-        /* Animated Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 5%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 2rem;
+            border-bottom: 3px solid var(--primary);
+            margin-bottom: 2rem;
         }
 
-        .nav-links {
+        .contact-bar {
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
             gap: 2rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
         }
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--primary);
-            font-weight: 500;
+        /* Timeline Layout */
+        .timeline-section {
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            padding: 1.5rem;
+            border-left: 3px solid var(--secondary);
+            margin-bottom: 2rem;
             position: relative;
-            transition: 0.3s;
         }
 
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .nav-links a::after {
+        .timeline-item::before {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            bottom: -5px;
-            left: 0;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section with Gradient Mesh */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            text-align: center;
-            color: white;
-            z-index: 1;
-        }
-
-        .profile-img {
-            width: 200px;
-            height: 200px;
+            left: -8px;
+            top: 24px;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
             border-radius: 50%;
-            margin: 1rem auto;
-            border: 4px solid white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: 0.3s;
         }
 
-        .profile-img:hover {
-            transform: scale(1.05);
-        }
-
-        .scroll-down {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-
-        /* Skills Grid with Hover Effects */
-        .skills {
-            padding: 5rem 5%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        /* Projects Showcase */
-        .projects {
-            padding: 5rem 5%;
-            background: #f5f5f5;
-        }
-
-        .project-grid {
+        /* Publications Grid */
+        .publications-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 1.5rem;
+            margin-top: 1rem;
         }
 
-        .project-card {
+        .publication-card {
             background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: 0.3s;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
         }
 
-        .project-card:hover {
+        .publication-card:hover {
             transform: translateY(-5px);
         }
 
-        /* Contact Form with Floating Labels */
-        .contact {
-            padding: 5rem 5%;
-            background: var(--primary);
-            color: white;
+        /* Skills Matrix */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
         }
 
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .input-group {
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .input-group input,
-        .input-group textarea {
-            width: 100%;
+        .skill-category {
+            background: white;
             padding: 1rem;
-            border: 2px solid rgba(255,255,255,0.3);
-            background: transparent;
-            color: white;
             border-radius: 8px;
-            transition: 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
-        .input-group input:focus,
-        .input-group textarea:focus {
-            border-color: white;
-            outline: none;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-30px); }
-            60% { transform: translateY(-15px); }
+        /* Section Titles */
+        h2 {
+            color: var(--primary);
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary);
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                justify-content: center;
-            }
-            
-            .hero-content h1 {
-                font-size: 2rem;
+            .timeline-item {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-
-    <section class="hero" id="about">
-        <div class="hero-content">
-            <img src="your-profile-image.jpg" alt="Vishnupriya" class="profile-img">
-            <h1>Vishnupriya Anupindi</h1>
-            <p>AI & ML Enthusiast | Full Stack Developer</p>
-            <div class="scroll-down">
-                <i class="fas fa-chevron-down fa-2x"></i>
+    <header class="header">
+        <h1>Dr. Arpan Mukherjee</h1>
+        <div class="contact-bar">
+            <a href="mailto:arpan.mukherjee@oeaw.ac.at">arpan.mukherjee@oeaw.ac.at</a>
+            <span>+43677 638 297 85</span>
+            <div class="social-links">
+                <a href="[ORCiD URL]"><i class="ai ai-orcid"></i></a>
+                <a href="[Google Scholar URL]"><i class="ai ai-google-scholar"></i></a>
+                <a href="[LinkedIn URL]"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
+    </header>
+
+    <section class="timeline-section">
+        <h2>Academic Positions</h2>
+        <div class="timeline-item">
+            <div class="timeline-date">Sept 2024 – Present</div>
+            <div class="timeline-content">
+                <h3>Joint Research Center on Applied Mathematics</h3>
+                <p>Shenzhen MSU-BIT University, China</p>
+                <ul>
+                    <li>Lecturer (Tenure-Track Assistant Professor)</li>
+                    <li>Visiting Researcher at City University of Hong Kong</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Add more timeline items -->
     </section>
 
-    <section class="skills" id="skills">
-        <h2>Technical Skills</h2>
+    <section>
+        <h2>Research Interests</h2>
         <div class="skills-grid">
-            <div class="skill-card">
-                <i class="fab fa-python fa-3x"></i>
-                <h3>Python</h3>
-                <p>Machine Learning & Data Science</p>
+            <div class="skill-category">
+                <h3>Analysis of PDEs</h3>
+                <p>Asymptotic & Potential Analysis<br>Regularity Theory</p>
             </div>
-            <!-- Add more skill cards -->
+            <!-- Add more interest categories -->
         </div>
     </section>
 
-    <section class="projects" id="projects">
-        <h2>Featured Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <img src="project1.jpg" alt="Project 1">
-                <div class="project-info">
-                    <h3>AI Chatbot</h3>
-                    <p>Natural Language Processing project using TensorFlow</p>
-                </div>
+    <section>
+        <h2>Selected Publications</h2>
+        <div class="publications-grid">
+            <div class="publication-card">
+                <h3>Heat Generation Using Lorentzian Nanoparticles</h3>
+                <p>SIAM Journal on Multiscale Modeling and Simulation, 2023</p>
+                <a href="#">Read Paper →</a>
             </div>
-            <!-- Add more project cards -->
+            <!-- Add more publication cards -->
         </div>
     </section>
 
-    <section class="contact" id="contact">
-        <h2>Get in Touch</h2>
-        <form class="contact-form">
-            <div class="input-group">
-                <input type="text" placeholder="Name">
+    <section>
+        <h2>Education</h2>
+        <div class="timeline-item">
+            <div class="timeline-date">Oct 2021–Nov 2023</div>
+            <div class="timeline-content">
+                <h3>PhD in Industrial Mathematics</h3>
+                <p>Johannes Kepler University Linz, Austria</p>
+                <p>Thesis: Mathematical Analysis of Therapy Modalities...</p>
             </div>
-            <div class="input-group">
-                <input type="email" placeholder="Email">
-            </div>
-            <div class="input-group">
-                <textarea rows="5" placeholder="Message"></textarea>
-            </div>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
+        </div>
+        <!-- Add more education items -->
     </section>
+
+    <!-- Add other sections following similar patterns -->
 
     <script>
-        // Add smooth scrolling to all links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        // Add smooth scrolling and interactive elements
+        document.querySelectorAll('.publication-card').forEach(card => {
+            card.addEventListener('click', () => {
+                // Add paper preview functionality
             });
         });
     </script>
