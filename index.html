@@ -3,178 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Arpan Mukherjee - Mathematical Sciences</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Vishnupriya Anupindi - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --light: #f8f9fa;
+            --primary: #2A2A72;
+            --secondary: #009FFD;
+            --accent: #FF0076;
+            --text: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
+            background: #f9f9f9;
+            color: var(--text);
+            line-height: 1.6;
         }
 
-        .header-container {
-            background: var(--primary);
+        /* Animated Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: flex-end;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            bottom: -5px;
+            left: 0;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section with Gradient Mesh */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
             color: white;
-            padding: 2rem 0;
+            z-index: 1;
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
-            border: 4px solid white;
             margin: 1rem auto;
+            border: 4px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: 0.3s;
         }
 
-        .nav-container {
-            margin: 3rem auto;
-            max-width: 800px;
-            padding: 0 20px;
+        .profile-img:hover {
+            transform: scale(1.05);
         }
 
-        .nav-grid {
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        /* Skills Grid with Hover Effects */
+        .skills {
+            padding: 5rem 5%;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
-            list-style: none;
-            padding: 0;
         }
 
-        .nav-item {
-            background: var(--light);
-            padding: 1.5rem;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        .skill-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .nav-item:hover {
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        /* Projects Showcase */
+        .projects {
+            padding: 5rem 5%;
+            background: #f5f5f5;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
             transform: translateY(-5px);
-            background: var(--secondary);
+        }
+
+        /* Contact Form with Floating Labels */
+        .contact {
+            padding: 5rem 5%;
+            background: var(--primary);
             color: white;
         }
 
-        .section {
-            display: none;
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 2rem;
-            text-align: left;
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .section.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
+        .input-group {
+            margin-bottom: 1.5rem;
+            position: relative;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .input-group input,
+        .input-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: transparent;
+            color: white;
+            border-radius: 8px;
+            transition: 0.3s;
         }
 
-        .back-btn {
-            display: block;
-            margin-top: 2rem;
-            text-align: center;
-            color: var(--secondary);
-            text-decoration: none;
+        .input-group input:focus,
+        .input-group textarea:focus {
+            border-color: white;
+            outline: none;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
         }
 
         @media (max-width: 768px) {
-            .nav-grid {
-                grid-template-columns: 1fr;
+            .nav-links {
+                justify-content: center;
             }
             
-            .profile-img {
-                width: 120px;
-                height: 120px;
+            .hero-content h1 {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="header-container">
-        <img src="assets/profile.jpg" alt="Dr. Arpan Mukherjee" class="profile-img">
-        <h1>Dr. Arpan Mukherjee</h1>
-        <p>Tenure-Track Assistant Professor of Mathematics</p>
-    </div>
+    <nav>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
 
-    <div class="nav-container">
-        <div class="nav-grid">
-            <div class="nav-item" data-section="research">
-                <i class="fas fa-microscope fa-2x"></i>
-                <h3>Research</h3>
-            </div>
-            <div class="nav-item" data-section="publications">
-                <i class="fas fa-book-open fa-2x"></i>
-                <h3>Publications</h3>
-            </div>
-            <div class="nav-item" data-section="education">
-                <i class="fas fa-graduation-cap fa-2x"></i>
-                <h3>Education</h3>
-            </div>
-            <div class="nav-item" data-section="contact">
-                <i class="fas fa-envelope fa-2x"></i>
-                <h3>Contact</h3>
+    <section class="hero" id="about">
+        <div class="hero-content">
+            <img src="your-profile-image.jpg" alt="Vishnupriya" class="profile-img">
+            <h1>Vishnupriya Anupindi</h1>
+            <p>AI & ML Enthusiast | Full Stack Developer</p>
+            <div class="scroll-down">
+                <i class="fas fa-chevron-down fa-2x"></i>
             </div>
         </div>
-    </div>
-
-    <!-- Research Section -->
-    <section id="research" class="section">
-        <h2>Research Interests</h2>
-        <ul>
-            <li>Analysis of Partial Differential Equations</li>
-            <li>Mathematical Problems in Materials Science</li>
-            <li>Wave Propagation & Inverse Problems</li>
-        </ul>
-        <a href="#" class="back-btn">Back to Home</a>
     </section>
 
-    <!-- Add other sections following the same pattern -->
+    <section class="skills" id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fab fa-python fa-3x"></i>
+                <h3>Python</h3>
+                <p>Machine Learning & Data Science</p>
+            </div>
+            <!-- Add more skill cards -->
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <h2>Featured Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="project1.jpg" alt="Project 1">
+                <div class="project-info">
+                    <h3>AI Chatbot</h3>
+                    <p>Natural Language Processing project using TensorFlow</p>
+                </div>
+            </div>
+            <!-- Add more project cards -->
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Get in Touch</h2>
+        <form class="contact-form">
+            <div class="input-group">
+                <input type="text" placeholder="Name">
+            </div>
+            <div class="input-group">
+                <input type="email" placeholder="Email">
+            </div>
+            <div class="input-group">
+                <textarea rows="5" placeholder="Message"></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </section>
 
     <script>
-        // Navigation functionality
-        document.querySelectorAll('.nav-item').forEach(item => {
-            item.addEventListener('click', function() {
-                const sectionId = this.dataset.section;
-                showSection(sectionId);
-            });
-        });
-
-        function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Show selected section
-            const activeSection = document.getElementById(sectionId);
-            if(activeSection) {
-                activeSection.classList.add('active');
-                window.scrollTo({
-                    top: activeSection.offsetTop - 100,
+        // Add smooth scrolling to all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
-            }
-        }
-
-        // Back button functionality
-        document.querySelectorAll('.back-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelectorAll('.section').forEach(section => {
-                    section.classList.remove('active');
-                });
-                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
     </script>
